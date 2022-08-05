@@ -3,7 +3,6 @@ import Cliente from "../components/Cliente";
 
 
 const Inicio = () => {
-  // console.log(import.meta.env.VITE_URLSERVER)
 
   const [clientes, setClientes] = useState([]);
 
@@ -14,8 +13,21 @@ const Inicio = () => {
         const response = await fetch(url);
         const result = await response.json();
 
-        setClientes(result);
-      } catch (error) {}
+        // De esta manera verificamos que no traiga un objeto sino un array
+        // ya que con json - server nos trae un objeto y toca limpiar la data para
+        // usarala en un metodo map
+
+        if(!Array.isArray(result)){
+          let nuevoArray = Object.values(result)
+          nuevoArray = nuevoArray[0]
+          setClientes(nuevoArray)
+        } else {
+          setClientes(result)
+        }
+
+      } catch (error) {
+        console.log(error)
+      }
     };
 
     obtenerClientesApi();
@@ -58,7 +70,9 @@ const Inicio = () => {
         </thead>
         <tbody>
           {clientes.map((cliente) => (
-            <Cliente key={cliente.id} cliente={cliente} 
+            <Cliente 
+            key={cliente.id} 
+            cliente={cliente} 
             handleEliminar={handleEliminar}
             />
           ))}
