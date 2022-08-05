@@ -2,27 +2,11 @@
   "clientes": [
     {
       "nombre": "Diego Barrera",
-      "empresa": "Softwarre shop ",
+      "empresa": "Independiente",
       "email": "7diegofernando@gmail.com",
-      "telefono": "3223443450",
-      "notas": "Solicita un producto",
+      "telefono": "489237498237",
+      "notas": "Este es un cliente de prueba",
       "id": 1
-    },
-    {
-      "nombre": "Zoraida Coba",
-      "empresa": "Empanadas Yopal",
-      "email": "yolicoba@gmail.com",
-      "telefono": "3232434343",
-      "notas": "Solicita asesoría",
-      "id": 4
-    },
-    {
-      "nombre": "Leider Fabian",
-      "empresa": "Barbería",
-      "email": "barberleider@gmail.com",
-      "telefono": "2783932984",
-      "notas": "Solicita",
-      "id": 5
     }
   ]
 }
