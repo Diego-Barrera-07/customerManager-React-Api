@@ -7,6 +7,14 @@
       "telefono": "489237498237",
       "notas": "Este es un cliente de prueba",
       "id": 1
+    },
+    {
+      "nombre": "Cliente de prueba",
+      "empresa": "Prueba",
+      "email": "prueba@gmail.com",
+      "telefono": "324234",
+      "notas": "",
+      "id": 2
     }
   ]
 }

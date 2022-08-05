@@ -3,12 +3,14 @@ import Cliente from "../components/Cliente";
 
 
 const Inicio = () => {
+  // console.log(import.meta.env.VITE_URLSERVER)
+
   const [clientes, setClientes] = useState([]);
 
   useEffect(() => {
     const obtenerClientesApi = async () => {
       try {
-        const url = "http://localhost:4000/clientes/";
+        const url = `${import.meta.env.VITE_URLSERVER}`
         const response = await fetch(url);
         const result = await response.json();
 
@@ -23,7 +25,7 @@ const Inicio = () => {
     const confirmar = confirm('¿Deseas eliminar este cliente?')
     if(confirmar){
       try {
-        const url = `http://localhost:4000/clientes/${id}`
+        const url = `${import.meta.env.VITE_URLSERVER}/clientes/${id}`
         const response = await fetch(url, {
           method: "DELETE"
         })

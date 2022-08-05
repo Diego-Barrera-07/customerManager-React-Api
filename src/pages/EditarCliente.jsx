@@ -11,7 +11,7 @@ const EditarCliente = () => {
   useEffect(() => {
     const obtenerClienteApi = async () => {
       try {
-        const url = `http://localhost:4000/clientes/${id}`;
+        const url = `${import.meta.env.VITE_URLSERVER}/${id}`;
         const response = await fetch(url);
         const result = await response.json();
         setCliente(result);

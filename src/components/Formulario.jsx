@@ -31,7 +31,7 @@ const Formulario = ({ cliente, cargando }) => {
       let response
       if (cliente.id) {
         // Cliente editado
-        const url = `http://localhost:4000/clientes/${cliente.id}`
+        const url = `${import.meta.env.VITE_URLSERVER}/${cliente.id}`
         response = await fetch(url, {
           method: "PUT",
           body: JSON.stringify(values),
@@ -41,7 +41,7 @@ const Formulario = ({ cliente, cargando }) => {
         })
       } else {
         // Nuevo registro
-        const url = "http://localhost:4000/clientes"
+        const url = `${import.meta.env.VITE_URLSERVER}`
         response = await fetch(url, {
           method: "POST",
           body: JSON.stringify(values),
@@ -63,7 +63,7 @@ const Formulario = ({ cliente, cargando }) => {
   ) : (
     <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-md md:w-3/4 mx-auto">
       <h1 className="text-gray font-bold text-xl text-center uppercase">
-        {cliente ? "Editar cliente" : "Agregar cliente"}
+        {cliente.nombre ? "Editar cliente" : "Agregar cliente"}
       </h1>
       <Formik
         initialValues={{
@@ -162,7 +162,7 @@ const Formulario = ({ cliente, cargando }) => {
 
               <input
                 type="submit"
-                value={cliente ? "Guardar cambios" : "Guardar cliente"}
+                value={cliente.nombre ? "Guardar cambios" : "Guardar cliente"}
                 className="mt-5 w-full bg-blue-800 text-white text-lg p-3 rounded-md cursor-pointer hover:bg-blue-700"
               />
             </Form>
