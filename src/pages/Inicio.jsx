@@ -6,6 +6,8 @@ const Inicio = () => {
 
   const [clientes, setClientes] = useState([]);
 
+  console.log(import.meta.env.VITE_URLSERVER)
+
   useEffect(() => {
     const obtenerClientesApi = async () => {
       try {
@@ -37,7 +39,7 @@ const Inicio = () => {
     const confirmar = confirm('¿Deseas eliminar este cliente?')
     if(confirmar){
       try {
-        const url = `${import.meta.env.VITE_URLSERVER}/clientes/${id}`
+        const url = `${import.meta.env.VITE_URLSERVER}/${id}`
         const response = await fetch(url, {
           method: "DELETE"
         })
